@@ -65,3 +65,22 @@
   </footer>
 </body>
 </html>
+document.querySelector('form').addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent form submission
+  const name = document.querySelector('#name').value.trim();
+  const email = document.querySelector('#email').value.trim();
+  const message = document.querySelector('#message').value.trim();
+
+  if (!name || !email || !message) {
+    alert('Please fill out all fields.');
+    return;
+  }
+
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  alert('Form submitted successfully!');
+  // Here you can add code to send the form data to your server
+});
